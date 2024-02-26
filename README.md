@@ -1,30 +1,15 @@
-# WWPF Resource files for all Syncfusion WPF assemblies 
+# How to localize when resource file present in different assembly or default namespace is not same as assembly name
+ 
+## WPF-localization-ResX-file
+By default, SfDataGrid reads the localization resource files based on assembly name from its default namespace. If you are having the localization resource file other than the executing assembly (Assembly.GetExecutingAssembly())or other than default namespace, then you have to pass the **assembly having the resource file** and **it’s default namespace** to  **Syncfusion.UI.Xaml.Grid.GridResourceWrapper.SetResources** method.
 
-The resource file which is used to localize the static text in the controls for the below listed assemblies are added in this repository. The default value (en-US) is added along with key values.
+## C#: 
 
-syncfusion.Diagram.Wpf
-Syncfusion.Edit.Wpf
-Syncfusion.Grid.Wpf
-Syncfusion.OlapChart.Wpf
-Syncfusion.OlapClient.WPf
-Syncfusion.OlapGauge.Wpf
-Syncfusion.OlapGrid.Wpf
-Syncfusion.OlapShared.Wpf
-Syncfusion.OlapTools.Wpf
-Syncfusion.PdfViewer.Wpf
-Syncfusion.PivotAnalysis.Wpf
-Syncfusion.ReportDesigner.Wpf
-Syncfusion.ReportViewer.Wpf
-Syncfusion.SfChart.Wpf
-Syncfusion.SfDiagram.Wpf
-Syncfusion.SfGrid.Wpf
-Syncfusion.SfInput.Wpf
-Syncfusion.SfSchedule.Wpf
-Syncfusion.SfShared.Wpf
-Syncfusion.SfSpellChecker.Wpf
-Syncfusion.SfSpreadsheet.Wpf
-Syncfusion.Shared.Wpf
-Syncfusion.Spreadsheet.Wpf
-Syncfusion.Tools.Wpf
-Syncfusion.SfRichTextBoxAdv.Wpf
-Syncfusion.SfRichTextRibbon.Wpf
+```C#
+public MainWindow()
+{
+  Syncfusion.UI.Xaml.Grid.GridResourceWrapper.SetResources(Application.Current.GetType().Assembly, "namespacename");
+    InitializeComponent();
+}
+```
+ 
